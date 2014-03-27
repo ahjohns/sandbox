@@ -1,0 +1,64 @@
+import wordcloud
+from os import path
+import sys
+from pytagcloud import create_tag_image, make_tags
+from pytagcloud.lang.counter import get_tag_counts
+
+def main():
+
+    d = path.dirname(__file__)
+    firstnamesword = open(path.join(d, 'firstnames.txt')).read()
+    text = '''Ann
+Gale
+Chris
+Hollis
+Nick
+Morgan
+Alex
+Myriam
+Michelle
+Carey
+Stephen
+Dan
+Nick
+Rob
+Hugo
+John
+Bryan
+Constance
+Gifford
+Spencer
+Carole
+Dan
+NorCal
+Anne
+Melanie
+Carol
+Pam
+Angus
+Jennifer
+Jane
+Ruth
+Annie
+John
+Joanne
+Elizabeth
+Emily
+Angus
+Debra
+Patricia
+Phillip
+Serena
+Benjamin
+Ben
+Spencer
+Ruth'''
+    # words = wordcloud.process_text(firstnamesword, max_features=2000)
+    # elements = wordcloud.fit_words(words, width=500, height=500)
+    # wordcloud.draw(elements, path.join(d, 'simondsfirstnames.png'), width=500, height=500,
+    #     scale=2)
+    tags = make_tags(get_tag_counts(text), maxsize=150)
+    create_tag_image(tags, 'simondsfirstnames.png', size=(900, 600))
+
+if __name__ == "__main__":
+    main()
