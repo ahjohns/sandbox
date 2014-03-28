@@ -17,7 +17,6 @@ def main():
     firstnames = open('firstnames.txt', 'w')
 
 #list of first names
-    print firstnamesword
     firstnamelist = []
 
 #for each json dictionary key value pair, grab first index of name, append to first name list
